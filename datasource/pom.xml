@@ -20,7 +20,6 @@
 	   <!-- <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection> -->
 	  <!--<tag>HEAD</tag>-->
     <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
 
 	<repositories>
@@ -58,7 +57,7 @@
 		</repository>
 		<snapshotRepository>
 			<id>maven-snapshots</id>
-			<name>Internal Snapshots</name>
+			<name>Internal Releases</name>
 			<url>http://mcon00001:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -130,7 +129,7 @@
 						</executions>
 						<configuration>
 							<serverId>nexus-releases</serverId>
-							<nexusUrl>http://mcon00001:8081/</nexusUrl>
+							<nexusUrl>http://localhost:8081/</nexusUrl>
 							<skipStaging>true</skipStaging>
 						</configuration>
 					</plugin>

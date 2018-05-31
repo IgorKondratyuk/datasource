@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.kip</groupId>
   <artifactId>datasource</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>datasource</name>
@@ -14,6 +13,14 @@
   	<java-version>1.8</java-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+	<scm>
+	   <connection>scm:git:https://github.com/IgorKondratyuk/datasource.git</connection>
+	   <url>http://github.com/IgorKondratyuk/datasource</url>
+	   <!-- <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection> -->
+	  <!--<tag>HEAD</tag>-->
+    <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection>
+  </scm>
 
 	<repositories>
 		<repository>
@@ -46,7 +53,7 @@
 		<repository>
 			<id>maven-releases</id>
 			<name>Internal Releases</name>
-			<url>http://mcon00001:8081/nexus/content/repositories/releases/</url>
+			<url>http://mcon00001:8081/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>maven-snapshots</id>
@@ -99,4 +106,73 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  
+  
+  <profiles>
+		<profile>
+			<id>releases</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.5.1</version>
+						<executions>
+							<execution>
+								<id>default-deploy</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<serverId>nexus-releases</serverId>
+							<nexusUrl>http://localhost:8081/</nexusUrl>
+							<skipStaging>true</skipStaging>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+  <build>
+  	<plugins>
+		<plugin>
+		   <groupId>org.apache.maven.plugins</groupId>
+		   <artifactId>maven-release-plugin</artifactId>
+		   <version>2.5.3</version>
+		   <configuration>
+		      <tagNameFormat>v${releaseVersion}</tagNameFormat>
+		      <autoVersionSubmodules>true</autoVersionSubmodules>
+		      <releaseProfiles>releases</releaseProfiles>
+		   </configuration>
+		   		<dependencies>
+		   <dependency>
+		      <groupId>org.apache.maven.shared</groupId>
+		      <artifactId>maven-invoker</artifactId>
+		      <version>2.2</version>
+		    </dependency>
+<!-- 
+					<dependency>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-scm-plugin</artifactId>
+						<version>1.8.1</version>
+					</dependency>-->
+				</dependencies> 
+		</plugin>
+<!--             <plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-release-plugin</artifactId>
+			   <configuration>
+			      <tagBase>svn://svn.zoo.com/zoo/tags</tagBase>
+			      <branchBase>svn://svn.zoo.com/zoo/branches</branchBase>
+			      <preparationGoals>clean install</preparationGoals>
+			      <goals>deploy</goals>
+			      <autoVersionSubmodules>true</autoVersionSubmodules>
+			   </configuration>
+			</plugin> -->  	
+  	</plugins>
+  </build>
 </project>

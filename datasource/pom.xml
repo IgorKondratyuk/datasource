@@ -18,7 +18,7 @@
 	   <connection>scm:git:https://github.com/IgorKondratyuk/datasource.git</connection>
 	   <url>http://github.com/IgorKondratyuk/datasource</url>
 	   <!-- <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection> -->
-	  <tag>HEAD</tag>
+	  <!--<tag>HEAD</tag>-->
     <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection>
   </scm>
 
@@ -53,7 +53,7 @@
 		<repository>
 			<id>maven-releases</id>
 			<name>Internal Releases</name>
-			<url>http://mcon00001:8081/nexus/content/repositories/releases/</url>
+			<url>http://mcon00001:8081/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>maven-snapshots</id>

@@ -3,7 +3,7 @@
 
   <groupId>com.kip</groupId>
   <artifactId>datasource</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>datasource</name>
@@ -20,7 +20,7 @@
 	   <!-- <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection> -->
 	  <!--<tag>HEAD</tag>-->
     <developerConnection>scm:git:https://github.com/IgorKondratyuk/datasource.git</developerConnection>
-    <tag>v${releaseVersion}</tag>
+    <tag>HEAD</tag>
   </scm>
 
 	<repositories>

@@ -58,7 +58,7 @@
 		</repository>
 		<snapshotRepository>
 			<id>maven-snapshots</id>
-			<name>Internal Releases</name>
+			<name>Internal Snapshots</name>
 			<url>http://mcon00001:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -130,7 +130,7 @@
 						</executions>
 						<configuration>
 							<serverId>nexus-releases</serverId>
-							<nexusUrl>http://localhost:8081/</nexusUrl>
+							<nexusUrl>http://mcon00001:8081/</nexusUrl>
 							<skipStaging>true</skipStaging>
 						</configuration>
 					</plugin>
